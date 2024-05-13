@@ -4,8 +4,8 @@
 #define _TASK_SLEEP_ON_IDLE_RUN
 
 
-int rgbPins[] = {9, 10, 11};
-const int pushButton = D3;
+const int rgbPins[] = {9, 10, 11};
+const int buttonPin = 3;
 
 void aperturaCoperchio();
 void prova() {
@@ -15,19 +15,24 @@ Scheduler runner;
 Task TaskCoperchio(1000*TASK_MILLISECOND, TASK_FOREVER, &aperturaCoperchio);
 Task TaskProva(TASK_MILLISECOND, TASK_FOREVER, &prova);
 
+void schedulerSetup() {
+  runner.init();
+  runner.addTask(TaskCoperchio);
+  runner.addTask(TaskProva);
+  TaskProva.enable();
+  TaskCoperchio.enable();
+}
+
 void setup() {
   Serial.begin(115200);
 
   pinMode(rgbPins[0], OUTPUT);  //red
   pinMode(rgbPins[1], OUTPUT);  //green
   pinMode(rgbPins[2], OUTPUT);  //blue
-  pinMode(pushButton, INPUT_PULLUP);
 
-  runner.init();
-  runner.addTask(TaskCoperchio);
-  runner.addTask(TaskProva);
-  TaskProva.enable();
-  TaskCoperchio.enable();
+  pinMode(buttonPin, INPUT_PULLUP);  //bottone apertura coperchio
+
+  schedulerSetup();
 }
 
 void loop() {
@@ -49,6 +54,8 @@ void ledFade(String Color) {
     setColor(brightness, 0, 0);
   } else if (Color == "green") {
     setColor(0, brightness, 0);
+  } else {
+    setColor(0,0,0);
   }
     
   brightness = brightness + fadeAmount;
@@ -62,12 +69,12 @@ void ledFade(String Color) {
 
 // ================== APERTURA COPERCHIO ==================
 void aperturaCoperchio() {
-  if (digitalRead(pushButton)==LOW) {
-    while(digitalRead(pushButton)==LOW){
+  if (digitalRead(buttonPin)==LOW) {
+    while(digitalRead(buttonPin)==LOW){
         ledFade("red");
     }
 
-    // reset ledFade()
+    // reset ledFade
     // per non far rimanere il led accesso anche fuori dal while precedente
     brightness = 0;
     fadeAmount = 5;
