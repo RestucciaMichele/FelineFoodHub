@@ -3,42 +3,8 @@
 
 #define _TASK_SLEEP_ON_IDLE_RUN
 
-
 const int rgbPins[] = {9, 10, 11};
-const int buttonPin = 3;
-
-void aperturaCoperchio();
-void prova() {
-  Serial.println("prova");
-}
-Scheduler runner;
-Task TaskCoperchio(1000*TASK_MILLISECOND, TASK_FOREVER, &aperturaCoperchio);
-Task TaskProva(TASK_MILLISECOND, TASK_FOREVER, &prova);
-
-void schedulerSetup() {
-  runner.init();
-  runner.addTask(TaskCoperchio);
-  runner.addTask(TaskProva);
-  TaskProva.enable();
-  TaskCoperchio.enable();
-}
-
-void setup() {
-  Serial.begin(115200);
-
-  pinMode(rgbPins[0], OUTPUT);  //red
-  pinMode(rgbPins[1], OUTPUT);  //green
-  pinMode(rgbPins[2], OUTPUT);  //blue
-
-  pinMode(buttonPin, INPUT_PULLUP);  //bottone apertura coperchio
-
-  schedulerSetup();
-}
-
-void loop() {
-  runner.execute();
-}
-
+const int buttonPin = 13;
 
 // ================== FADE LED RGB ==================
 void setColor(int redValue, int greenValue, int blueValue) {
@@ -57,22 +23,29 @@ void ledFade(String Color) {
   } else {
     setColor(0,0,0);
   }
-    
+
   brightness = brightness + fadeAmount;
 
   if (brightness <= 0 || brightness >= 255) {
     fadeAmount = -fadeAmount;
   }
-
-  delay(30*TASK_MILLISECOND);
 }
+
+// ================== TASK SETUP ==================
+void aperturaCoperchio();
+void ledFadeRed() {
+  ledFade("red");
+}
+Scheduler runner;
+Task TaskLedRed(30*TASK_MILLISECOND, TASK_FOREVER, &ledFadeRed);
+Task TaskAperturaCoperchio(1000*TASK_MILLISECOND, TASK_FOREVER, &aperturaCoperchio);
 
 // ================== APERTURA COPERCHIO ==================
 void aperturaCoperchio() {
   if (digitalRead(buttonPin)==LOW) {
-    while(digitalRead(buttonPin)==LOW){
-        ledFade("red");
-    }
+    TaskLedRed.enable();
+  } else {
+    TaskLedRed.disable();
 
     // reset ledFade
     // per non far rimanere il led accesso anche fuori dal while precedente
@@ -80,5 +53,30 @@ void aperturaCoperchio() {
     fadeAmount = 5;
     ledFade("red");
   }
-  delay(10*TASK_MILLISECOND);
+}
+
+// ================== SETUP ==================
+void schedulerSetup() {
+  runner.init();
+
+  runner.addTask(TaskAperturaCoperchio);
+  runner.addTask(TaskLedRed);
+  
+  TaskAperturaCoperchio.enable();
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(rgbPins[0], OUTPUT);  //red
+  pinMode(rgbPins[1], OUTPUT);  //green
+  pinMode(rgbPins[2], OUTPUT);  //blue
+
+  pinMode(buttonPin, INPUT_PULLUP);  //bottone apertura coperchio
+
+  schedulerSetup();
+}
+
+void loop() {
+  runner.execute();
 }
