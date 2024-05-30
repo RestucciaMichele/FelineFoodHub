@@ -20,7 +20,8 @@ Il led RGB segnala diversi stati:
   - **in rosso**, il coperchio del contenitore è aperto per ricaricare la scorta di croccantini (in questa fase tutto il sistema è momentaneamente sospeso)
   - **in verde**, il servomotore sta fornendo cibo
 _______________________________
-
+### materiale
+<img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="500"/>
 
 
 ________________________
