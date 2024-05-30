@@ -1,15 +1,17 @@
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/0bbbda8c-0fdb-4dda-9ec2-d2486d1c7bab">
-    <img alt="Logo" src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/0bbbda8c-0fdb-4dda-9ec2-d2486d1c7bab" width="600px" max-width="100%"/>
-  </picture>
-</div>
-
-Distributore di croccantini
+![logoFelineFoodHub](https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/262522e9-989b-420c-ab3f-00e54a551863)
 
 
-- hw: led rgb, bottone, sensore ultrasuoni, servomotore, sensore per pesare
-- sf: distributore di croccantini che, all'esaurimento del cibo all'interno della ciotola, automaticamente rilasci il cibo. Con anche il controllo (tramite ultrasuoni) del livello di croccantini all'interno del contenitore
+
+Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/sistemiembedded) dell'università Statale di Milano
+
+### hardware
+  - led rgb
+  - bottone
+  - sensore ultrasuoni
+  - servomotore
+  - cella di carico
+### funzionamento
+Il progetto prevede la realizzazione di un distributore automatico di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la scorta sta per esaurirsi.
 
 
 ## miglioramenti
