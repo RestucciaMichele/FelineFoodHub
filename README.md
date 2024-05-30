@@ -1,20 +1,30 @@
-![logoFelineFoodHub](https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/262522e9-989b-420c-ab3f-00e54a551863)
+
+
+![logo](https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/097acf7a-c695-4cca-8fe9-1894ff191e88)
+
+Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/sistemiembedded) dell'Università Statale di Milano
+
+### hardware utilizzato
+  - **attuatori**:
+    - [led rgb](https://www.amazon.it/Youmile-emissione-Tri-Color-trasparenti-potrebbero/dp/B0897L6TZ8)
+    - [servomotore](https://www.amazon.it/Aihasd-28YBJ-48-4-Phase-Stepper-Arduino/dp/B00U744GJU)
+  - **sensori**:
+    - [pulsante](https://www.amazon.it/GOLRISEN-Interruttore-Finecorsa-Attuatore-Momentaneo/dp/B07F9QKTQQ)
+    - [sensore ultrasuoni](https://www.amazon.it/CML-Modulo-Ultrasuoni-Distanza-Trasduttore-Misurazione/dp/B00JB1C142)
+    - [cella di carico (1 kg)](https://www.amazon.it/elettronica-portatile-sensore-HX711-pesatura-Raspberry/dp/B076PYX5DW)
+_______________________________
+### funzionamento in breve
+Il progetto prevede la realizzazione di un distributore di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo presente nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la scorta sta per esaurirsi.  
+Il led RGB segnala diversi stati:
+  - **in blu**, il contenitore non ha più abbastanza cibo da fornire
+  - **in rosso**, il coperchio del contenitore è aperto per ricaricare la scorta di croccantini (in questa fase tutto il sistema è momentaneamente sospeso)
+  - **in verde**, il servomotore sta fornendo cibo
+_______________________________
 
 
 
-Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/sistemiembedded) dell'università Statale di Milano
-
-### hardware
-  - led rgb
-  - bottone
-  - sensore ultrasuoni
-  - servomotore
-  - cella di carico
-### funzionamento
-Il progetto prevede la realizzazione di un distributore automatico di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la scorta sta per esaurirsi.
-
-
-## miglioramenti
+________________________
+### possibili miglioramenti futuri
 in futuro si potrebbe aumentare la complessità, inserendo:
 - un display per gestire tutte le informazioni di setup iniziali e visualizzare gli stati in cui è il distributore durante l'arco delle giornate.
 - un sensore per identificare quando c'è un gatto in avvicinamento, così da non far partire nessun attuatore e farlo mangiare senza distrazioni.
