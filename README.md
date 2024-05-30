@@ -14,7 +14,7 @@ Distributore di croccantini
 
 ## miglioramenti
 in futuro si potrebbe aumentare la complessità, inserendo:
-- un display per tutte le informazioni iniziali e visualizzare gli stati in cui è il distributore.
+- un display per gestire tutte le informazioni di setup iniziali e visualizzare gli stati in cui è il distributore durante l'arco delle giornate.
 - un sensore per identificare quando c'è un gatto in avvicinamento, così da non far partire nessun attuatore e farlo mangiare senza distrazioni.
 - un collegamento al wifi per:
   - memorizzare in un giorno la quantità di cibo mangiato o altre informazioni
