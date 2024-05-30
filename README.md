@@ -21,8 +21,15 @@ Il led RGB segnala diversi stati:
   - **in verde**, il servomotore sta fornendo cibo
 _______________________________
 ### materiale
-<img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="500"/>
-
+<table>
+  <tr>
+    <td>
+    <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="700"/>
+    </td>
+    <td style="padding-left: 20px;">
+     N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni delle misure    </td>
+  </tr>
+</table>
 
 ________________________
 ### possibili miglioramenti futuri
