@@ -1,4 +1,10 @@
-# FelineFoodHub
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/0bbbda8c-0fdb-4dda-9ec2-d2486d1c7bab">
+    <img alt="Logo" src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/0bbbda8c-0fdb-4dda-9ec2-d2486d1c7bab" width="600px" max-width="100%"/>
+  </picture>
+</div>
+
 Distributore di croccantini
 
 
