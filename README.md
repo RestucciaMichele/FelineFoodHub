@@ -9,7 +9,7 @@ Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/si
     - [led rgb](https://www.amazon.it/Youmile-emissione-Tri-Color-trasparenti-potrebbero/dp/B0897L6TZ8)
     - [servomotore](https://www.amazon.it/Aihasd-28YBJ-48-4-Phase-Stepper-Arduino/dp/B00U744GJU)
   - **sensori**:
-    - [pulsante](https://www.amazon.it/GOLRISEN-Interruttore-Finecorsa-Attuatore-Momentaneo/dp/B07F9QKTQQ)
+    - [pulsante con leva](https://www.amazon.it/GOLRISEN-Interruttore-Finecorsa-Attuatore-Momentaneo/dp/B07F9QKTQQ)
     - [sensore ultrasuoni](https://www.amazon.it/CML-Modulo-Ultrasuoni-Distanza-Trasduttore-Misurazione/dp/B00JB1C142)
     - [cella di carico (1 kg)](https://www.amazon.it/elettronica-portatile-sensore-HX711-pesatura-Raspberry/dp/B076PYX5DW)
 _______________________________
@@ -20,16 +20,24 @@ Il led RGB segnala diversi stati:
   - **in rosso**, il coperchio del contenitore è aperto per ricaricare la scorta di croccantini (in questa fase tutto il sistema è momentaneamente sospeso)
   - **in verde**, il servomotore sta fornendo cibo
 _______________________________
-### materiale
-<table>
+### costruzione
+- questo è lo schema del plexiglass (da 4 mm) da tagliare, con tutte le misure che ho usato per costruirela struttura.
+  <table>
   <tr>
     <td>
     <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="700"/>
     </td>
     <td style="padding-left: 20px;">
-     N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni delle misure    </td>
+     N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni sulle misure    </td>
   </tr>
 </table>
+- successivamente ho creato degli oggetti in 3d per completare le parti mancanti:
+  - il coperchio (che ospita il pulsante e il sensore ultrasuoni)
+  - il piatto che fa anche da distributore (al quale viene fissata tutta l'elettronica principale)
+  - tre passacavi (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
+  
+
+
 
 ________________________
 ### possibili miglioramenti futuri
