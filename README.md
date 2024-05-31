@@ -14,7 +14,7 @@ Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/si
     - [cella di carico (1 kg)](https://www.amazon.it/elettronica-portatile-sensore-HX711-pesatura-Raspberry/dp/B076PYX5DW)
 _______________________________
 ### funzionamento in breve
-Il progetto prevede la realizzazione di un distributore di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo presente nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la scorta sta per esaurirsi.  
+Il progetto prevede la realizzazione di un distributore di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo presente nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la riserva sta per esaurirsi.  
 Il led RGB segnala diversi stati:
   - **in blu**, il contenitore non ha più abbastanza cibo da fornire
   - **in rosso**, il coperchio del contenitore è aperto per ricaricare la scorta di croccantini (in questa fase tutto il sistema è momentaneamente sospeso)
