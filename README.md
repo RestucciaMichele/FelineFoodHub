@@ -25,16 +25,17 @@ _______________________________
   <table>
   <tr>
     <td>
-    <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="700"/>
+      <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="700"/>
     </td>
     <td style="padding-left: 20px;">
-     N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni sulle misure    </td>
-  </tr>
-</table>
-- successivamente ho creato degli oggetti in 3d per completare le parti mancanti:
-  - il coperchio (che ospita il pulsante e il sensore ultrasuoni)
-  - il piatto che fa anche da distributore (al quale viene fissata tutta l'elettronica principale)
-  - tre passacavi (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
+      N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni sulle misure    </td>
+    </tr>
+  </table>
+
+- successivamente ho creato e stampato con PLA degli oggetti 3d per completare le parti mancanti:  
+  - il [coperchio](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/coperchio.stl) (che ospita il pulsante e il sensore ultrasuoni)
+  - il [piatto](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/distributore.stl) che fa anche da distributore (al quale viene fissata tutta l'elettronica principale)
+  - tre [passacavi](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/passacavi.stl) (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
   
 
 
