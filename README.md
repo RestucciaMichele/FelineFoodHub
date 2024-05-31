@@ -21,7 +21,7 @@ Il led RGB segnala diversi stati:
   - **in verde**, il servomotore sta fornendo cibo
 _______________________________
 ### costruzione
-- questo è lo schema del plexiglass (da 4 mm) da tagliare, con tutte le misure che ho usato per costruirela struttura.
+- questo è lo schema del plexiglass (da 4 mm) da tagliare, con tutte le misure che ho usato per costruire la struttura.
   <table>
   <tr>
     <td>
@@ -32,7 +32,7 @@ _______________________________
     </tr>
   </table>
 
-- successivamente ho creato e stampato con PLA degli oggetti 3d per completare le parti mancanti:  
+- successivamente ho creato e stampato, con filamento PLA, degli oggetti 3d per completare le parti mancanti:  
   - il [coperchio](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/coperchio.stl) (che ospita il pulsante e il sensore ultrasuoni)
   - il [piatto](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/distributore.stl) che fa anche da distributore (al quale viene fissata tutta l'elettronica principale)
   - tre [passacavi](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/passacavi.stl) (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
