@@ -36,9 +36,7 @@ _______________________________
   - il [coperchio](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/coperchio.stl) (che ospita il pulsante e il sensore ultrasuoni)
   - il [piatto](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/distributore.stl) che fa anche da distributore (al quale viene fissata tutta l'elettronica principale)
   - tre [passacavi](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/passacavi.stl) (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
-  
-
-
+  - altri tipi di [viti](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/VITI.stl) (che migliorano l'erogazione dei croccantini)
 
 ________________________
 ### possibili miglioramenti futuri
