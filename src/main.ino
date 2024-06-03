@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <TaskScheduler.h>
 #include <Stepper.h>
-#include "HX711.h"
+#include <HX711.h>  //https://github.com/bogde/HX711 non è una libreria che si trova dalle risorse di Arduino IDE
 
 #define _TASK_SLEEP_ON_IDLE_RUN
 #define _TASK_STATUS_REQUEST
@@ -19,14 +19,19 @@ const int motorPin4 = 12;  // IN4 on the ULN2003 driver
 const int buttonPin = 13;
 
 // ======= VARIABILI GLOBALI =======
-const int contenitoreVuoto = 17; // cm
+const int intervalloControlloCiotola = 40; // secondi
+const int intervalloCoperchio = 1; // secondi
+
+const int distanzaContenitoreVuoto = 17; // cm
 float distanzaDalCibo;
 
 const int giriVite = 20;  // 20 per un giro completo
 
 const int pesoCiboMinimo = 15;
 const int pesoCiboMassimo = 60;
-const float calibration_factor = 2076.89;
+const float calibrationLoadCell = 2076.89;
+float calibrationDrift = calibrationLoadCell;
+unsigned long oldCalibrationTime = millis();
 float pesoAttuale;
 
 // ======= MOTORE STEPPER =======
@@ -47,7 +52,12 @@ HX711 scale;
 void misuraPeso() {
   scale.power_up();
   
-  scale.set_scale(calibration_factor);
+  if (millis() > oldCalibrationTime) { // controllo overflow millis()
+    calibrationDrift += ((millis()-oldCalibrationTime)/300000) * 0.001; // ogni 5 minuti = 300000 millis, aggiorno la calibrazione
+  } // nel caso in cui millis() si resettasse, si perderebbe solo un aggiornamento della calibrazione
+  oldCalibrationTime = millis();
+
+  scale.set_scale(calibrationDrift);
   pesoAttuale = scale.get_units(10);
 
   scale.power_down();
@@ -93,7 +103,7 @@ void ledFade(String Color) {
 }
 
 // ================== TASK SETUP ==================
-void aperturaCoperchio();
+void controlloAperturaCoperchio();
 void controlloCiotola();
 void ledFadeRed() {ledFade("red");}
 void ledFadeBlue() {ledFade("blue");}
@@ -101,12 +111,12 @@ void Motore();
 Scheduler runner;
 Task TaskLedRed(30*TASK_MILLISECOND, TASK_FOREVER, &ledFadeRed);
 Task TaskLedBlue(30*TASK_MILLISECOND, TASK_FOREVER, &ledFadeBlue);
-Task TaskAperturaCoperchio(1000*TASK_MILLISECOND, TASK_FOREVER, &aperturaCoperchio);
+Task TaskControlloAperturaCoperchio(intervalloCoperchio*TASK_SECOND, TASK_FOREVER, &controlloAperturaCoperchio);
 Task TaskAttivazioneMotore(TASK_MILLISECOND, giriVite, &Motore);
-Task TaskControlloCiotola(40*TASK_SECOND, TASK_FOREVER, &controlloCiotola);
+Task TaskControlloCiotola(intervalloControlloCiotola*TASK_SECOND, TASK_FOREVER, &controlloCiotola);
 
 // ================== APERTURA COPERCHIO ==================
-void resetLed() { // in questo modo non rimane accesso dall'ultima chiamata di ledFade
+void resetLed() { // funzione chiamata tramite la funzione controlloAperturaCoperchio, schedulata ogni secondo. In questo modo il led non rimane acceso dall'ultima chiamata di ledFade
   if (!TaskLedRed.isEnabled() && !TaskLedBlue.isEnabled()) {
     brightness = 0;
     fadeAmount = 5;
@@ -114,7 +124,7 @@ void resetLed() { // in questo modo non rimane accesso dall'ultima chiamata di l
   }
 }
 
-void aperturaCoperchio() {
+void controlloAperturaCoperchio() {
   if (digitalRead(buttonPin)==LOW) {  // coperchio aperto -> disabilito tutti i task
     Serial.println("COPERCHIO APERTO. Disabilitazione task ...");
     TaskAttivazioneMotore.disable();
@@ -140,13 +150,11 @@ void controlloCiotola() {
   Serial.print("controllo quantità scorta di cibo ==> ");
   misurazioneDistanza();
   Serial.println(distanzaDalCibo);
-  if (distanzaDalCibo >= contenitoreVuoto) {
+  if (distanzaDalCibo >= distanzaContenitoreVuoto) {
     Serial.println("SCORTA INSUFFICIENTE. ricarica di cibo non possibile ...");
     TaskLedBlue.enableIfNot(); 
-    return;
   } else {
     TaskLedBlue.disable();
-    
     Serial.print("SCORTA SUFFICIENTE. controllo quantità cibo nella ciotola ==> ");
     misuraPeso();
     Serial.println(pesoAttuale);
@@ -158,7 +166,6 @@ void controlloCiotola() {
         Serial.println("CIBO SUFFICIENTE. Motore non attivato");
         ricaricato = false;
         TaskAttivazioneMotore.disable();
-        return;
       } 
     } else {
       Serial.println("CIBO SUFFICIENTE. Motore non attivato");
@@ -172,12 +179,12 @@ void schedulerSetup() {
 
   runner.addTask(TaskLedRed);
   runner.addTask(TaskLedBlue);
-  runner.addTask(TaskAperturaCoperchio);
+  runner.addTask(TaskControlloAperturaCoperchio);
   runner.addTask(TaskAttivazioneMotore);
   runner.addTask(TaskControlloCiotola);
   
+  TaskControlloAperturaCoperchio.enable(); 
   TaskControlloCiotola.enable();
-  TaskAperturaCoperchio.enable(); 
 }
 
 void loadCellSetup() {
