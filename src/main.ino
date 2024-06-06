@@ -2,6 +2,8 @@
 #include <TaskScheduler.h>
 #include <Stepper.h>
 #include <HX711.h>  //https://github.com/bogde/HX711 non è una libreria che si trova dalle risorse di Arduino IDE
+#include <StopWatch.h>
+
 
 #define _TASK_SLEEP_ON_IDLE_RUN
 #define _TASK_STATUS_REQUEST
@@ -19,7 +21,7 @@ const int motorPin4 = 12;  // IN4 on the ULN2003 driver
 const int buttonPin = 13;
 
 // ======= VARIABILI GLOBALI =======
-const int intervalloControlloCiotola = 40; // secondi
+const int intervalloControlloCiotola = 30; // secondi
 const int intervalloCoperchio = 1; // secondi
 
 const int distanzaContenitoreVuoto = 17; // cm
@@ -29,9 +31,8 @@ const int giriVite = 20;  // 20 per un giro completo
 
 const int pesoCiboMinimo = 15;
 const int pesoCiboMassimo = 60;
-const float calibrationLoadCell = 2076.89;
+const float calibrationLoadCell = 2076.89; // valore per la prima calibrazione iniziale all'accensione
 float calibrationDrift = calibrationLoadCell;
-unsigned long oldCalibrationTime = millis();
 float pesoAttuale;
 
 // ======= MOTORE STEPPER =======
@@ -49,14 +50,15 @@ void moveForward() {
 
 // ======= BILANCIA, LOAD CELL =======
 HX711 scale;
+StopWatch timer;
 void misuraPeso() {
   scale.power_up();
   
-  if (millis() > oldCalibrationTime) { // controllo overflow millis()
-    calibrationDrift += ((millis()-oldCalibrationTime)/300000) * 0.001; // ogni 5 minuti = 300000 millis, aggiorno la calibrazione
-  } // nel caso in cui millis() si resettasse, si perderebbe solo un aggiornamento della calibrazione
-  oldCalibrationTime = millis();
-
+  timer.stop();
+  calibrationDrift = calibrationDrift + ((timer.elapsed() / 300000) * 0.001 ); // ogni 5 minuti = 300000 millis, aggiorno la calibrazione
+  timer.reset();
+  timer.start();
+  
   scale.set_scale(calibrationDrift);
   pesoAttuale = scale.get_units(10);
 
@@ -192,6 +194,8 @@ void loadCellSetup() {
   scale.set_scale();
   scale.tare();
   scale.power_down();
+
+  timer.start();  // avvio il cronometro per la calibrazione continua della bilancia
 }
 
 void initialSetup() {
