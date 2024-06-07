@@ -54,10 +54,10 @@ StopWatch timer;
 void misuraPeso() {
   scale.power_up();
   
-  timer.stop();
-  calibrationDrift = calibrationDrift + ((timer.elapsed() / 300000) * 0.001 ); // ogni 5 minuti = 300000 millis, aggiorno la calibrazione
-  timer.reset();
-  timer.start();
+  // timer.stop();
+  // calibrationDrift = calibrationDrift + ((timer.elapsed() / 300000) * 0.001 ); // ogni 5 minuti = 300000 millis, aggiorno la calibrazione
+  // timer.reset();
+  // timer.start();
   
   scale.set_scale(calibrationDrift);
   pesoAttuale = scale.get_units(10);
@@ -128,7 +128,7 @@ void resetLed() { // funzione chiamata tramite la funzione controlloAperturaCope
 
 void controlloAperturaCoperchio() {
   if (digitalRead(buttonPin)==LOW) {  // coperchio aperto -> disabilito tutti i task
-    Serial.println("COPERCHIO APERTO. Disabilitazione task ...");
+    Serial.println(F("COPERCHIO APERTO. Disabilitazione task ..."));
     TaskAttivazioneMotore.disable();
     TaskControlloCiotola.disable();
     TaskLedBlue.disable();
@@ -149,28 +149,28 @@ void Motore() {
 
 bool ricaricato = false;
 void controlloCiotola() {
-  Serial.print("controllo quantità scorta di cibo ==> ");
+  Serial.print(F("controllo quantità scorta di cibo ==> "));
   misurazioneDistanza();
   Serial.println(distanzaDalCibo);
   if (distanzaDalCibo >= distanzaContenitoreVuoto) {
-    Serial.println("SCORTA INSUFFICIENTE. ricarica di cibo non possibile ...");
+    Serial.println(F("SCORTA INSUFFICIENTE. ricarica di cibo non possibile ..."));
     TaskLedBlue.enableIfNot(); 
   } else {
     TaskLedBlue.disable();
-    Serial.print("SCORTA SUFFICIENTE. controllo quantità cibo nella ciotola ==> ");
+    Serial.print(F("SCORTA SUFFICIENTE. controllo quantità cibo nella ciotola ==> "));
     misuraPeso();
     Serial.println(pesoAttuale);
     if (pesoAttuale < pesoCiboMinimo || ricaricato == true) {
-      Serial.println("CIBO INSUFFICIENTE. Attivazione motore ...");
+      Serial.println(F("CIBO INSUFFICIENTE. Attivazione motore ..."));
       TaskAttivazioneMotore.restart();
       ricaricato = true;
       if (pesoAttuale >= pesoCiboMassimo) {
-        Serial.println("CIBO SUFFICIENTE. Motore non attivato");
+        Serial.println(F("CIBO SUFFICIENTE. Motore non attivato"));
         ricaricato = false;
         TaskAttivazioneMotore.disable();
       } 
     } else {
-      Serial.println("CIBO SUFFICIENTE. Motore non attivato");
+      Serial.println(F("CIBO SUFFICIENTE. Motore non attivato"));
     }
   }
 }
@@ -199,15 +199,15 @@ void loadCellSetup() {
 }
 
 void initialSetup() {
-  Serial.println("Inizializzazione dispositivo FelineFoodHub ...");
+  Serial.println(F("Inizializzazione dispositivo FelineFoodHub ..."));
   delay(2000);
-  Serial.println("appoggiare sopra la bilancia una ciotola vuota per la calibrazione e taratura ...");
-  delay(2000); Serial.println("...");
-  delay(2000); Serial.println("...");
-  delay(2000); Serial.println("...");
-  Serial.println("Inizio Calibrazione ...");
+  Serial.println(F("appoggiare sopra la bilancia una ciotola vuota per la calibrazione e taratura ..."));
+  delay(2000); Serial.println(F("..."));
+  delay(2000); Serial.println(F("..."));
+  delay(2000); Serial.println(F("..."));
+  Serial.println(F("Inizio Calibrazione ..."));
   loadCellSetup();
-  Serial.println("Calibrazione completata. Bilancia pronta per l'uso ...");
+  Serial.println(F("Calibrazione completata. Bilancia pronta per l'uso ..."));
   schedulerSetup();
 }
 
