@@ -42,6 +42,7 @@ ________________________
 ### possibili miglioramenti futuri
 in futuro si potrebbe migliorare il progetto, inserendo:
 - un motorino dc che, vibrando, non faccia bloccare i croccantini nel contenitore
+- algoritmo che proporzioni il cibo dato durante la giornata rispetto ad una quantità massima decisa dall'utente
 - un display per gestire tutte le informazioni di setup iniziali e visualizzare gli stati in cui è il distributore durante l'arco delle giornate.
 - un sensore per identificare quando c'è un gatto in avvicinamento, così da non far partire nessun attuatore e farlo mangiare senza distrazioni.
 - un collegamento al wifi per:
