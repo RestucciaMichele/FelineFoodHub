@@ -10,11 +10,11 @@ Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/si
     - [servomotore](https://www.amazon.it/Aihasd-28YBJ-48-4-Phase-Stepper-Arduino/dp/B00U744GJU)
   - **sensori**:
     - [pulsante con leva](https://www.amazon.it/GOLRISEN-Interruttore-Finecorsa-Attuatore-Momentaneo/dp/B07F9QKTQQ)
-    - [sensore ultrasuoni](https://www.amazon.it/CML-Modulo-Ultrasuoni-Distanza-Trasduttore-Misurazione/dp/B00JB1C142)
+    - [sensore di distanza ultrasuoni](https://www.amazon.it/CML-Modulo-Ultrasuoni-Distanza-Trasduttore-Misurazione/dp/B00JB1C142)
     - [cella di carico (1 kg)](https://www.amazon.it/elettronica-portatile-sensore-HX711-pesatura-Raspberry/dp/B076PYX5DW)
 _______________________________
 ### funzionamento in breve
-Il progetto prevede la realizzazione di un distributore di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo presente nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la riserva sta per esaurirsi.  
+Il progetto prevede la realizzazione di un distributore di croccantini che, durante l'arco della giornata, riempia la ciotola del cibo in modo autonomo. Il sistema utilizza una cella di carico per registrare il peso del cibo presente nella ciotola e attivare un servomotore quando necessario, garantendo così un rifornimento costante. Inoltre, un sensore di distanza a ultrasuoni controlla il livello di croccantini nel contenitore, segnalando quando la riserva sta per esaurirsi.  
 Il led RGB segnala diversi stati:
   - **in blu**, il contenitore non ha più abbastanza cibo da fornire
   - **in rosso**, il coperchio del contenitore è aperto per ricaricare la scorta di croccantini (in questa fase tutto il sistema è momentaneamente sospeso)
@@ -33,7 +33,7 @@ _______________________________
   </table>
 
 - successivamente ho creato e stampato, con filamento PLA, degli oggetti 3d per completare le parti mancanti:  
-  - il [coperchio](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/coperchio.stl) (che ospita il pulsante e il sensore ultrasuoni)
+  - il [coperchio](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/coperchio.stl) (che ospita il pulsante e il sensore di distanza a ultrasuoni)
   - il [piatto](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/distributore.stl) che fa anche da distributore (al quale viene fissata tutta l'elettronica principale)
   - tre [passacavi](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/passacavi.stl) (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
   - altri tipi di [viti](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/VITI.stl) (che migliorano l'erogazione dei croccantini)
