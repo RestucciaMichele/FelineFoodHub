@@ -10,7 +10,7 @@ Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/si
     - [servomotore](https://www.amazon.it/Aihasd-28YBJ-48-4-Phase-Stepper-Arduino/dp/B00U744GJU)
   - **sensori**:
     - [pulsante con leva](https://www.amazon.it/GOLRISEN-Interruttore-Finecorsa-Attuatore-Momentaneo/dp/B07F9QKTQQ)
-    - [sensore di distanza ultrasuoni](https://www.amazon.it/CML-Modulo-Ultrasuoni-Distanza-Trasduttore-Misurazione/dp/B00JB1C142)
+    - [sensore di distanza a ultrasuoni](https://www.amazon.it/CML-Modulo-Ultrasuoni-Distanza-Trasduttore-Misurazione/dp/B00JB1C142)
     - [cella di carico (1 kg)](https://www.amazon.it/elettronica-portatile-sensore-HX711-pesatura-Raspberry/dp/B076PYX5DW)
 _______________________________
 ### funzionamento in breve
@@ -28,7 +28,8 @@ _______________________________
       <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="800"/>
     </td>
     <td style="padding-left: 20px;">
-      N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni sulle misure    </td>
+      1° N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni sulle misure<br>
+      2° N.B. i fori segnati servono per non crepare il plexiglass durante la piegatura    </td>
     </tr>
   </table>
 
