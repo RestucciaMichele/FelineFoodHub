@@ -39,7 +39,16 @@ _______________________________
   - tre [passacavi](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/passacavi.stl) (per tenere la struttura in plexiglass rigida e per non fare vedere i cavi passanti dal coperchio al distributore)
   - altri tipi di [viti](https://github.com/RestucciaMichele/FelineFoodHub/blob/main/readmeFile/VITI.stl) (che migliorano l'erogazione dei croccantini)
 
+### prototipo
+![prototipo](https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/1d8c1188-310b-4eeb-b495-11b66fe89119)
+
+
 ________________________
+### errori
+- cavi troppo corti
+- motorino troppo debole
+- piatto distributore poco inclinato
+
 ### possibili miglioramenti futuri
 in futuro si potrebbe migliorare il progetto, inserendo:
 - un motorino dc che, vibrando, non faccia bloccare i croccantini nel contenitore
