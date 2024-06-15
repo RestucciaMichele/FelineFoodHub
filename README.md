@@ -28,7 +28,7 @@ _______________________________
       <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/c57f1120-a306-4538-b359-df634e556f45" alt="misure plexiglass" width="800"/>
     </td>
     <td style="padding-left: 20px;">
-      1° N.B. le proporzioni nell'immagine non sono quellle reali. Serve solo per avere le indicazioni sulle misure<br>
+      1° N.B. le proporzioni nell'immagine non sono quelle reali. Serve solo per avere le indicazioni sulle misure<br>
       2° N.B. i fori segnati servono per non crepare il plexiglass durante la piegatura    </td>
     </tr>
   </table>
