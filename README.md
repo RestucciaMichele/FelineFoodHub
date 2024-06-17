@@ -36,10 +36,10 @@ _______________________________
 <table>
   <tr>
     <td>
-      <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/1d8c1188-310b-4eeb-b495-11b66fe89119" alt="prototipo" width="400"/>
+      <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/1d8c1188-310b-4eeb-b495-11b66fe89119" alt="prototipo" width="200"/>
     </td>
     <td>
-      <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/e6178876-4cb0-4c48-9613-3913fda39eaa" alt="circuito" width="400"/>
+      <img src="https://github.com/RestucciaMichele/FelineFoodHub/assets/72453178/e6178876-4cb0-4c48-9613-3913fda39eaa" alt="circuito" width="500"/>
     </td>
   </tr>
 </table>
