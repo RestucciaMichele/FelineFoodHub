@@ -51,6 +51,12 @@ ________________________
 - piatto distributore poco inclinato
 
 ### possibili miglioramenti futuri
+lato programmazione:
+- migliorare lettura codice tramite, prototipo della funzione (per togliere i task in mezzo al codice)
+- inserire funzioni anonime per limitare numero di prototipi della funzione (led rgb task)
+- eliminare delay microsecond con libreria interrupt per sensore ad ultrasuoni di distanza
+- schedulare anche lo stepper (prima task avanti, all'ultimo passo inserire task indietro)
+
 in futuro si potrebbe migliorare il progetto, inserendo:
 - un motorino dc che, vibrando, non faccia bloccare i croccantini nel contenitore
 - un sensore per identificare quando c'è un gatto in avvicinamento, così da non far partire nessun attuatore e farlo mangiare senza distrazioni.
