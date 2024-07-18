@@ -5,6 +5,8 @@
 Progetto creato per il corso di [Sistemi Embedded](https://gitlab.di.unimi.it/sistemiembedded) dell'Università Statale di Milano
 _______________________________
 ### hardware utilizzato
+  - **board**:
+    - STMicroelectronics STM32-F401RE
   - **attuatori**:
     - [led rgb](https://www.amazon.it/Youmile-emissione-Tri-Color-trasparenti-potrebbero/dp/B0897L6TZ8)
     - [servomotore](https://www.amazon.it/Aihasd-28YBJ-48-4-Phase-Stepper-Arduino/dp/B00U744GJU)
